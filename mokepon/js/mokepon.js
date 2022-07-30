@@ -1,4 +1,4 @@
-//variables globales
+//variables Globales
 let ataqueJugador
 let ataqueEnemigo
 
