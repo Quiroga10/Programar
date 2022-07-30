@@ -47,4 +47,5 @@ while(triunfos < 3 && perdidas < 3){
     alert("Tu elijes: " + eleccion(jugador))
     alert("Tú " + combate(pc,jugador))
 }
+//se ve el resultado
 alert("Ganaste " + triunfos + " veces. Perdiste "+ perdidas + " veces.");
