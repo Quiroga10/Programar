@@ -8,6 +8,9 @@ function iniciarJuego(){
     //para solo mostrar la Seleccion de Mascota
     let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
     sectionSeleccionarAtaque.style.display = 'none'
+    //ocultar boton reiniciar
+    let sectionReinniciar = document.getElementById('reiniciar')
+    sectionReinniciar.style.display = 'none'
 
     let botonMascotaJugador = document.getElementById('boton-mascota')
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
@@ -50,6 +53,7 @@ function seleccionarMascotaJugador(){
     }
     else{
         alert('NO Seleccionaste NADA')
+        reiniciarJuego()
     }
     seleccionarMascotaEnemigo()
 }
@@ -125,10 +129,15 @@ function combate(){
 }
 
 function revisarVidas(){
+    // let sectionReinniciar = document.getElementById('reiniciar')
     if(vidasEnemigo == 0){
         crearMensajeFinal("Felicitaciones! Ganaste 🎉")
+        //aparecer boton reiniciar
+        //sectionReinniciar.style.display = 'block'
     }else if(vidasJugador == 0){
         crearMensajeFinal("Lo siento, perdiste 😢")
+        //aparecer boton reiniciar
+        //sectionReinniciar.style.display = 'block'
     }
 }
 
@@ -148,6 +157,9 @@ function crearMensajeFinal(resultadoFinal){
 
     let botonTierra = document.getElementById('boton-tierra')
     botonTierra.disabled = true
+    //aparecer boton reiniciar
+    let sectionReinniciar = document.getElementById('reiniciar')
+    sectionReinniciar.style.display = 'block'
 }
 
 function crearMensaje(resultado){
