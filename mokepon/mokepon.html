@@ -9,24 +9,29 @@
     <script src="./js/mokepon.js"></script>
 </head>
 <body>
-    <h1 class="titulo">MOKEPON 🔥💧🌱</h1>
-
     <section id="seleccionar-mascota">
-        <h2>Elige tu mascota:</h2>
+        <h1 class="titulo">MOKEPON 🔥💧🌍</h1>
+        <h2 class="subtitulo">Elige tu mascota:</h2>
 
-        <label for="hipodoge">hipodoge</label>
-        <input type="radio" name="mascota" id="hipodoge">
+        <div class="tarjetas">
+            <label class="tarjeta-de-mokepon" for="hipodoge">hipodoge</label>
+            <img class="img-mokepon" src="./img/Mokemon-3.png" alt="img-hipodoge">
+            <input type="radio" name="mascota" id="hipodoge">
 
-        <label for="capipepo">capipepo</label>
-        <input type="radio" name="mascota" id="capipepo">
+            <label class="tarjeta-de-mokepon" for="capipepo">capipepo</label>
+            <img class="img-mokepon" src="./img/Mokemon-2.webp" alt="img-capipepo">
+            <input type="radio" name="mascota" id="capipepo">
 
-        <label for="ratigueya">ratigueya</label>
-        <input type="radio" name="mascota" id="ratigueya">
+            <label class="tarjeta-de-mokepon" for="ratigueya">ratigueya</label>
+            <img class="img-mokepon" src="./img/Mokemon-1.webp" alt="img-capipepo">
+            <input type="radio" name="mascota" id="ratigueya">
+        </div>
 
         <button id="boton-mascota">Seleccionar</button>
     </section>
 
     <section id="seleccionar-ataque">
+        <h1 class="titulo">MOKEPON 🔥💧🌱</h1>
         <h2>Elige tu ataque:</h2>
 
         <p>Tu mascota <span id="mascota-jugador"></span> tiene <span id="vidas-jugador">3</span> vidas</p>

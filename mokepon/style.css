@@ -1,6 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka One', cursive;
+    background-color: #FCF8E8;
+}
+
+#seleccionar-mascota{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content:center;
+}
+
 .titulo{
+    width: min-content;
     color:rgb(53, 38, 120);
-    width: 310px;
-    height: 50px;
-    background-color: bisque;
+    text-align: center;
+    margin: 15px;
+    margin-top: 50px;
+    padding: 8px;
+    font-size: 60px;
+}
+
+.subtitulo{
+    color: #395B64;
+    margin-top: 30px;
+}
+
+.tarjetas{
+    display: flex;
+    gap: 31px;
+    margin-bottom: 60px;
+}
+
+.tarjeta-de-mokepon{
+    width: 100px;
+    height: 100px;
+    background-color: #DF7861;
+    padding: 10px;
+    border-radius: 20px;
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 5px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin-top: 60px;
+
+}
+
+label{
+    color: #ffffff;
+    text-align: center;
+}
+
+.img-mokepon{
+    max-width: 100%;
+    width: 78px;
+    height: 70px;
+    margin-top: auto;
+    margin-left: -117px;
+}
+
+input{
+    display: none;
+}
+@media(max-width:780px){
+    .titulo{
+        margin-top: 70px;
+        font-size: 70px;
+    }
+
+    .subtitulo{
+        margin-bottom: 50px;
+        margin-top: auto;
+    }
+
+    .tarjetas{
+        align-content: center;
+        align-items: center;
+        margin-top: -35px;
+        margin-bottom: 55px;
+    }
+
+    .tarjeta-de-mokepon{
+        margin-top: 16px;
+    }
+
+    .img-mokepon{
+        margin-top: 45px;
+        margin-left: -114px;
+    }
+}
+
+@media(max-width:384px){
+    .titulo{
+        margin-top: 10px;
+        font-size: 40px;
+    }
+
+    .subtitulo{
+        margin-bottom: 40px;
+        margin-top: auto;
+    }
+
+    .tarjetas{
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        gap:0;
+        margin-top: -35px;
+        margin-bottom: 20px;
+    }
+
+    .tarjeta-de-mokepon{
+        margin-top: 16px;
+    }
+
+    .img-mokepon{
+        margin-top: -72px;
+        margin-left: 5px;
+    }
 }
