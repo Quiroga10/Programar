@@ -1,46 +1,62 @@
 //variables Globales
+//funcion iniciarJuego
+//para solo mostrar la Seleccion de Mascota
+let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
+//ocultar boton reiniciar
+let sectionReinniciar = document.getElementById('reiniciar')
+let botonMascotaJugador = document.getElementById('boton-mascota')
+let botonFuego = document.getElementById('boton-fuego')
+let botonAgua = document.getElementById('boton-agua')
+let botonTierra = document.getElementById('boton-tierra')
+let botonReiniciar = document.getElementById('boton-reiniciar')
+
+//function seleccionarMascotaJugador
+// ocultar seleccionar mascota
+let sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
+//Luego de seleccionar mascota, me aparesca seleccionar ataque
+let inputHipodoge = document.getElementById('hipodoge')
+let inputCapipepo = document.getElementById('capipepo')
+let inputRatigueya = document.getElementById('ratigueya')
+let spanMascotaJugador = document.getElementById('mascota-jugador')
+
+//function seleccionarMascotaEnemigo
+let spanMascotaEnemigo = document.getElementById('mascota-enemigo')
+
+//function combate
+let spanVidasJugador = document.getElementById('vidas-jugador')
+let spanVidasEnemigo = document.getElementById('vidas-enemigo')
+
+//function crearMensaje
+let sectionMensajes = document.getElementById('resultado')
+let ataquesDelJugador = document.getElementById('ataques-del-jugador')
+let ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
+
+
 let ataqueJugador
 let ataqueEnemigo
 let vidasJugador = 3
 let vidasEnemigo = 3
 
 function iniciarJuego(){
-    //para solo mostrar la Seleccion de Mascota
-    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
     sectionSeleccionarAtaque.style.display = 'none'
-    //ocultar boton reiniciar
-    let sectionReinniciar = document.getElementById('reiniciar')
+
     sectionReinniciar.style.display = 'none'
 
-    let botonMascotaJugador = document.getElementById('boton-mascota')
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
 
-    let botonFuego = document.getElementById('boton-fuego')
     botonFuego.addEventListener('click',ataqueFuego)
 
-    let botonAgua = document.getElementById('boton-agua')
     botonAgua.addEventListener('click',ataqueAgua)
 
-    let botonTierra = document.getElementById('boton-tierra')
     botonTierra.addEventListener('click',ataqueTierra)
 
-    let botonReiniciar = document.getElementById('boton-reiniciar')
     botonReiniciar.addEventListener('click', reiniciarJuego)
 }
 
 function seleccionarMascotaJugador(){
-    // ocultar seleccionar mascota
-    let sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
     sectionSeleccionarMascota.style.display = 'none'
 
-    //Luego de seleccionar mascota, me aparesca seleccionar ataque
-    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
     sectionSeleccionarAtaque.style.display = 'flex'
-
-    let inputHipodoge = document.getElementById('hipodoge')
-    let inputCapipepo = document.getElementById('capipepo')
-    let inputRatigueya = document.getElementById('ratigueya')
-    let spanMascotaJugador = document.getElementById('mascota-jugador')
 
     if(inputHipodoge.checked){
         spanMascotaJugador.innerHTML = 'Hipodoge'
@@ -59,7 +75,6 @@ function seleccionarMascotaJugador(){
 }
 function seleccionarMascotaEnemigo(){
     let mascotaAleatorio = aleatorio(1,3)
-    let spanMascotaEnemigo = document.getElementById('mascota-enemigo')
 
     if (mascotaAleatorio == 1){
         spanMascotaEnemigo.innerHTML = 'Hipodoge'
@@ -97,9 +112,6 @@ function ataqueAleatorioEnemigo(){
 }
 
 function combate(){
-    let spanVidasJugador = document.getElementById('vidas-jugador')
-    let spanVidasEnemigo = document.getElementById('vidas-enemigo')
-
     if(ataqueEnemigo == ataqueJugador){
         crearMensaje("EMPATE")
     }else if(ataqueJugador == 'Fuego' && ataqueEnemigo == 'Tierra'){
@@ -129,42 +141,14 @@ function combate(){
 }
 
 function revisarVidas(){
-    // let sectionReinniciar = document.getElementById('reiniciar')
     if(vidasEnemigo == 0){
         crearMensajeFinal("Felicitaciones! Ganaste 🎉")
-        //aparecer boton reiniciar
-        //sectionReinniciar.style.display = 'block'
     }else if(vidasJugador == 0){
         crearMensajeFinal("Lo siento, perdiste 😢")
-        //aparecer boton reiniciar
-        //sectionReinniciar.style.display = 'block'
     }
 }
 
-function crearMensajeFinal(resultadoFinal){
-    let sectionMensajes = document.getElementById('resultado')
-
-    sectionMensajes.innerHTML = resultadoFinal
-
-    let botonFuego = document.getElementById('boton-fuego')
-    botonFuego.disabled = true
-
-    let botonAgua = document.getElementById('boton-agua')
-    botonAgua.disabled = true
-
-    let botonTierra = document.getElementById('boton-tierra')
-    botonTierra.disabled = true
-    //aparecer boton reiniciar
-    let sectionReinniciar = document.getElementById('reiniciar')
-    sectionReinniciar.style.display = 'block'
-}
-
 function crearMensaje(resultado){
-    let sectionMensajes = document.getElementById('resultado')
-    let ataquesDelJugador = document.getElementById('ataques-del-jugador')
-    let ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
-
-    let notificacion = document.createElement('p')
     let nuevoAtaqueJugador = document.createElement('p')
     let nuevoAtaqueEnemigo = document.createElement('p')
 
@@ -174,6 +158,17 @@ function crearMensaje(resultado){
 
     ataquesDelJugador.appendChild(nuevoAtaqueJugador)
     ataquesDelEnemigo.appendChild(nuevoAtaqueEnemigo)
+}
+
+function crearMensajeFinal(resultadoFinal){
+    sectionMensajes.innerHTML = resultadoFinal
+
+    botonFuego.disabled = true
+
+    botonAgua.disabled = true
+
+    botonTierra.disabled = true
+    sectionReinniciar.style.display = 'block'
 }
 
 function reiniciarJuego(){
