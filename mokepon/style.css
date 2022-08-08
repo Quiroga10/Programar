@@ -31,6 +31,7 @@ body {
 .subtitulo{
     color: #395B64;
     margin-top: 30px;
+    margin-bottom: 34px;
 }
 
 .tarjetas{
@@ -40,45 +41,154 @@ body {
 }
 
 .tarjeta-de-mokepon{
-    width: 100px;
+    width: 180px;
     height: 100px;
-    background-color: #DF7861;
+    background-color: #FFC23C;
     padding: 10px;
     border-radius: 20px;
     /* offset-x | offset-y | blur-radius | spread-radius | color */
     box-shadow: 5px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    margin-top: 60px;
-
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    outline: 2px solid #fff;
+    transition-property: outline-offset, outline-color,background-color;
+    transition-duration:.25s;
+}
+.tarjeta-de-mokepon:hover{
+    outline-offset:4px;
+}
+.tarjeta-de-mokepon:hover p{
+    animation: shake .25s;
 }
 
-label{
-    color: #ffffff;
-    text-align: center;
-}
-
-.img-mokepon{
+.tarjeta-de-mokepon img{
     max-width: 100%;
-    width: 78px;
-    height: 70px;
+    width: 80px;
+    /* height: 70px;
     margin-top: auto;
-    margin-left: -117px;
+    margin-left: -117px; */
+}
+img:hover{
+    width:90px;
 }
 
 input{
     display: none;
 }
+input:checked + label{
+    background:#395B64;
+}
+button{
+    padding:18px 30px;
+    font-size:16px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    overflow: hidden;
+    background:#3b3b3b;
+    border-radius:5px;
+    min-width:200px;
+    color:#fff;
+    z-index: 0;
+    text-transform: uppercase;
+    font-weight:600;
+    letter-spacing: 2px;
+    transition: all 0.3s;
+}
+button::before{
+    content:"";
+    position:absolute;
+    display:block;
+    top:0;
+    left:-50px;
+    width: 70%;
+    height:100%;
+    background:linear-gradient(90deg,transparent,#ffffff71,transparent);
+    transition: all 1s;
+    z-index: 1;
+    transform: translateX(-120px)skew(-20deg);
+}
+button:hover::before{
+    transform: translateX(300px)skew(-20deg);
+}
+button:hover{
+    background:#ff006a;
+}
+
+/*2da pantalla*/
+#seleccionar-ataque{
+    /* display flex ya no, por que está en el JS */
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+}
+#boton-fuego:hover{
+    background:#cd3a00;
+}
+#boton-agua:hover{
+    background:lightskyblue;
+}
+#boton-tierra:hover{
+    background: #8a3e1e;
+}
+#boton-reiniciar{
+    min-width: 100px;
+    height: 48px;
+    margin-left: 24px;
+    margin-bottom:20px ;
+}
+#boton-reiniciar:hover{
+    background:red;
+}
+#resultado{
+    margin-top:15px;
+    margin-bottom:15px;
+}
+#resultado{
+    animation-duration:3s;
+    animation-name:slidein;
+}
+@keyframes slidein {
+    from {
+    margin-left: 100%;
+    width: 300%
+    }
+
+    to {
+    margin-left: 0%;
+    width: 100%;
+    }
+}
+
+.container-vidas-ataques{
+    display:grid;
+    grid-template-columns: 100px 100px;
+    margin-left:65px;
+}
+.container-vidas-jugador, .container-vidas-enemigo{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-right: 55px;
+}
 @media(max-width:780px){
     .titulo{
-        margin-top: 70px;
-        font-size: 70px;
+        margin-top: 20px;
+        font-size: 45px;
+        margin-left: 10px;
     }
 
     .subtitulo{
         margin-bottom: 50px;
         margin-top: auto;
+        margin-left: 10px;
     }
 
     .tarjetas{
+        flex-direction: column;
         align-content: center;
         align-items: center;
         margin-top: -35px;
@@ -89,13 +199,18 @@ input{
         margin-top: 16px;
     }
 
-    .img-mokepon{
-        margin-top: 45px;
-        margin-left: -114px;
+    .tarjeta-de-mokepon img{
+        margin-top: 0px;
+        margin-left: -161px;
+    }
+    .boton-ataque{
+        display:grid;
+        justify-content:center;
+        gap: 10px;
     }
 }
 
-@media(max-width:384px){
+@media(max-width:400px){
     .titulo{
         margin-top: 10px;
         font-size: 40px;
@@ -116,11 +231,32 @@ input{
     }
 
     .tarjeta-de-mokepon{
+        height: 83px;
+        width: 170px;
         margin-top: 16px;
     }
-
-    .img-mokepon{
-        margin-top: -72px;
+    .tarjeta-de-mokepon:hover{
+        outline-offset:-3px;
+    }
+    .tarjeta-de-mokepon img{
+        margin-top: 0px;
         margin-left: 5px;
+        width: 60px;
+    }
+    #boton-mascota{
+        font-size: 12px;
+        height: 43px;
+        border-radius: 5px;
+    }
+    .boton-ataque{
+        display:grid;
+        justify-content:center;
+        gap: 10px;
+    }
+    .container-vidas-ataques{
+        margin-left:55px;
+    }
+    #boton-reiniciar{
+        margin-left: 24px;
     }
 }
